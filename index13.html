@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style13.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="icon-hamburger"><span></span></div>
+<nav class="menu-container">
+  <ul class="menu">
+    <li class="menu-item">
+<h1>portfolio</h1></li>
+
+
+    <li class="menu-item"><a href="#">プロフィール </a></li>
+    <li class="menu-item"><a href="#">制作実績</a></li>
+    <li class="menu-item"><a href="#">お問い合わせ</a></li>
+    
+  </ul>
+</nav>
+<div class="hero">
+  <div class="hero1">
+    <h1>シンプルに</h1>
+<p>ひと目見ただけで内容がわかるように心がけています</p>
+  </div>
+</div>
+
+<div class="accordion">私の長所は?
+</div>
+<div class="accordion-content">
+  <nav class="accordion-nav">
+    <ul>
+      <li><p>
+        自発的な性格です。気になることは自ら動き、周りの意見や経験を取り入れ行動します。 </p>
+        <p>
+        営業職時代は上司や先輩、同僚のイイ所を取り入れ、成績1位を取らせて貰えました。  </p>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="accordion-a">私の趣味は?
+</div>
+<div class="accordion-content-a">
+  <nav class="accordion-nav-a">
+    <ul>
+      <li>
+        <p>
+          株式投資です。何かを分析したり考えたりするのが好きで休日は没頭します。
+        </p>
+        <p>没頭し過ぎて取引に使うSBI証券のサイトや仕組みが気になったのがエンジニアを目指す１つのきっかけです。
+        </p>
+      </li>
+    </ul>
+  </nav>
+</div>
+  
+<script>
+  jQuery( '.accordion' ).on( 'click', function() {
+  jQuery( '.accordion-content' ).slideToggle();
+}); 
+</script>
+<script>
+  jQuery( '.accordion-a' ).on( 'click', function() {
+  jQuery( '.accordion-content-a' ).slideToggle();
+}); 
+</script>
+
+
+
+
+
+
+<div class="floating"> <a href="#">トップへ</a> </div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+jQuery(window).on("scroll", function($) {
+  if (jQuery(this).scrollTop() > 100) {
+    jQuery('.floating').show();
+  } else {
+    jQuery('.floating').hide();
+  }
+});
+
+jQuery('.floating').click(function () {
+  jQuery('body,html').animate({
+    scrollTop: 0
+  }, 500);
+  return false;
+});
+</script>
+
+
+  <script>
+   jQuery('.icon-hamburger').on('click', function() {
+  jQuery('body').append('<div id="modal-overlay"></div>');
+  jQuery('#modal-overlay').fadeIn('1500');
+  jQuery('.menu-container .menu').fadeIn('1500');
+});
+
+jQuery(document).on('click', '#modal-overlay', function() {
+  jQuery('#modal-overlay').fadeOut('1500');
+  jQuery('.menu-container .menu').fadeOut('1500');
+});
+  </script>
+  
+</body>
+<style type="text/css">
+  #formWrap {
+    width:700px;
+    margin:0 auto;
+    color:#555;
+    line-height:120%;
+    font-size:90%;
+  }
+  table.formTable{
+    width:100%;
+    margin:0 auto;
+    border-collapse:collapse;
+  }
+  table.formTable td,table.formTable th{
+    border:1px solid #ccc;
+    padding:10px;
+  }
+  table.formTable th{
+    width:30%;
+    font-weight:normal;
+    background:#efefef;
+    text-align:left;
+  }
+  /*  引用　簡易版レスポンシブ用CSS　*/
+  @media screen and (max-width:572px) {
+  #formWrap {
+    width:95%;
+    margin:0 auto;
+  }
+  table.formTable th, table.formTable td {
+    width:auto;
+    display:block;
+  }
+  table.formTable th {
+    margin-top:5px;
+    border-bottom:0;
+  }
+  input[type="text"], textarea {
+    width:80%;
+    padding:5px;
+    font-size:110%;
+    display:block;
+  }
+  input[type="submit"], input[type="reset"], input[type="button"] {
+    display:block;
+    width:100%;
+    height:40px;
+  }
+  }
+  </style>
+  
+  <body>
+  <div id="formWrap">
+    <h3>お問い合わせサンプル</h3>
+    <p>下記フォームに必要事項を入力後、確認ボタンを押してください。<br />
+  ※実際には送信はされません</p>
+    <form method="post" action="mail.php">
+      <table class="formTable">
+        <tr>
+          <th>ご用件</th>
+          <td><select name="ご用件">
+              <option value="">選択してください</option>
+              <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
+              <option value="リンクについて">リンクについて</option>
+            </select></td>
+        </tr>
+        <tr>
+          <th>お名前</th>
+          <td><input size="20" type="text" name="お名前" /> ※必須</td>
+        </tr>
+        <tr>
+          
+        </tr>
+        <tr>
+          <th>Mail（半角）</th>
+          <td><input size="30" type="text" name="Email" /> ※必須<br /><span style="color: #F00">入力しても届きません</span></td>
+        </tr>
+      
+        <tr>
+          <th>サイトを知ったきっかけ</th>
+          <td><input name="サイトを知ったきっかけ[]" type="checkbox" value="友人・知人" /> 友人・知人　
+            <input name="サイトを知ったきっかけ[]" type="checkbox" value="検索エンジン" /> 検索エンジン</td>
+        </tr>
+        <tr>
+          <th>お問い合わせ内容<br /></th>
+          <td><textarea name="お問い合わせ内容" cols="50" rows="5"></textarea></td>
+        </tr>
+      </table>
+      <p align="center">
+        <input type="submit" value="　 確認 　" />　<input type="reset" value="リセット" />
+      </p>
+    </form>
+  
+  </div>
+  </body>
+</html>
